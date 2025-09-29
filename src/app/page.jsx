@@ -33,8 +33,25 @@ export default function Home() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-sky-400 to-blue-700">
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 w-80 text-center text-white shadow-xl">
+    <div className="flex items-center justify-center min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: weather?.weather?.[0]?.main
+          ? weather.weather[0].main === "Clear"
+            ? "url('/Clear.webp')"
+            : weather.weather[0].main === "Clouds"
+              ? "url('/Clouds.webp')"
+              : weather.weather[0].main === "Rain"
+                ? "url('/Rain.webp')"
+                : weather.weather[0].main === "Snow"
+                  ? "url('/Snow.webp')"
+                  : weather.weather[0].main === "Thunderstorm"
+                    ? "url('/Thunderstorm.webp')"
+                    : ["Fog", "Mist"].includes(weather.weather[0].main)
+                      ? "url('/Fog.webp')"
+                      : "url('/weather.webp')"  
+                      : "url('/weather.webp')",    
+      }}>
+      <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 w-80 text-center text-white shadow-xl">
 
         <div className="flex items-center bg-white/20 rounded-xl px-3 py-2 mb-6">
           <input
@@ -82,14 +99,14 @@ export default function Home() {
 
             <div className="flex justify-around w-full mt-4 text-white/80">
               <div className="flex items-center">
-                <WiHumidity size={40} className="mr-1.5"/>
+                <WiHumidity size={40} className="mr-1.5" />
                 <div className="flex flex-col items-center">
                   <span className="font-semibold">{weather.main.humidity}%</span>
-                <span className="text-sm">Humidity</span>
+                  <span className="text-sm">Humidity</span>
                 </div>
               </div>
               <div className="flex items-center">
-                <LuWind size={30} className="mr-1.5"/>
+                <LuWind size={30} className="mr-1.5" />
                 <div className="flex flex-col items-center">
                   <span className="font-semibold">{Math.round(weather.wind.speed)} m/s</span>
                   <span className="text-sm">Wind</span>
