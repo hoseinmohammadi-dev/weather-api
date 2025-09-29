@@ -5,7 +5,7 @@ import Image from "next/image";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { WiDaySunny, WiCloud, WiRain, WiSnow, WiThunderstorm, WiFog, WiHumidity } from "react-icons/wi";
 import { LuWind } from "react-icons/lu";
-
+const API_KEY = "917432ef8903d6b06e7021e015ce82dc"
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -18,7 +18,7 @@ export default function Home() {
       setWeather(null);
 
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
       );
 
       if (!res.ok) {
