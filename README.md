@@ -18,7 +18,7 @@ A simple weather application built with Next.js that allows users to search for 
 
 You can view the live application here:
 
-👉 [weather-api-weld-six.vercel.app](https://weather-api-weld-six.vercel.app/) (VPN)
+👉 [Demo Online](https://weather-api-weld-six.vercel.app/)
 
 ## Technologies Used
 
