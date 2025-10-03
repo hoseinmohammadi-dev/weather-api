@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { WiDaySunny, WiCloud, WiRain, WiSnow, WiThunderstorm, WiFog, WiHumidity } from "react-icons/wi";
+import { FaLinkedin ,FaGithub ,FaInstagram} from "react-icons/fa";
 import { LuWind } from "react-icons/lu";
 const API_KEY = "917432ef8903d6b06e7021e015ce82dc"
 
@@ -33,7 +34,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-cover bg-center"
+    <div className="flex flex-col gap-24 items-center justify-center min-h-screen bg-cover bg-center"
       style={{
         backgroundImage: weather?.weather?.[0]?.main
           ? weather.weather[0].main === "Clear"
@@ -48,8 +49,8 @@ export default function Home() {
                     ? "url('/Thunderstorm.webp')"
                     : ["Fog", "Mist"].includes(weather.weather[0].main)
                       ? "url('/Fog.webp')"
-                      : "url('/weather.webp')"  
-                      : "url('/weather.webp')",    
+                      : "url('/weather.webp')"
+          : "url('/weather.webp')",
       }}>
       <div className="bg-black/40 backdrop-blur-lg rounded-2xl p-6 w-80 text-center text-white shadow-xl">
 
@@ -133,6 +134,34 @@ export default function Home() {
           </section>
         )}
 
+      </div>
+      <div className="flex items-center justify-between w-[90%] max-w-3xl mx-auto p-4 rounded-2xl bg-black/20 backdrop-blur-md">
+
+        <div className="flex items-center gap-4">
+          <Image
+            src="/hosein.png" 
+            alt="Hosein Mohammadi"
+            width={60}
+            height={60}
+            className="rounded-full"
+          />
+          <div>
+            <h2 className="font-semibold text-white text-lg">Hosein Mohammadi</h2>
+            <p className="text-white/60 text-sm">Front End Developer</p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 text-xl text-white">
+          <a href="https://github.com/username" target="_blank" rel="noopener noreferrer">
+            <FaGithub size={23}  className="hover:text-black transition-colors" />
+          </a>
+          <a href="https://instagram.com/username" target="_blank" rel="noopener noreferrer">
+            <FaInstagram size={23}  className="hover:text-pink-500 transition-colors" />
+          </a>
+          <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin size={23}  className="hover:text-blue-600 transition-colors" />
+          </a>
+        </div>
       </div>
     </div>
   );
